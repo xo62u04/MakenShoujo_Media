@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>隱私權政策 — 魔劍少女 MakenShouju</title>
+  <meta name="description" content="魔劍少女 MakenShouju 社群帳號與社群自動發文工具的隱私權政策說明。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand-red: #B8232C;
+      --brand-red-dark: #8a1a21;
+      --brand-red-glow: rgba(184, 35, 44, 0.3);
+      --bg: #0e0e12;
+      --bg-card: #16161e;
+      --bg-card-2: #1c1c26;
+      --border: rgba(184, 35, 44, 0.25);
+      --text-primary: #e8e0d0;
+      --text-secondary: #9a9080;
+      --text-muted: #5a5448;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 300;
+      line-height: 1.9;
+      min-height: 100vh;
+    }
+
+    /* ── 背景裝飾 ── */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% -10%, rgba(184, 35, 44, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 100% 80%, rgba(184, 35, 44, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 50px;
+    }
+
+    .logo-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .logo-line .sword {
+      font-size: 28px;
+      filter: drop-shadow(0 0 8px var(--brand-red));
+    }
+
+    .logo-line .brand {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--brand-red);
+      text-transform: uppercase;
+    }
+
+    header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(26px, 5vw, 40px);
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    header h1 span {
+      color: var(--brand-red);
+    }
+
+    .meta-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .meta-info span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── 目錄 ── */
+    .toc {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+
+    .toc h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--brand-red);
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc-counter;
+    }
+
+    .toc ol li {
+      counter-increment: toc-counter;
+      padding: 4px 0;
+    }
+
+    .toc ol li::before {
+      content: counter(toc-counter, decimal-leading-zero) ". ";
+      color: var(--brand-red);
+      font-size: 12px;
+      font-weight: 500;
+      margin-right: 6px;
+    }
+
+    .toc ol li a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .toc ol li a:hover {
+      color: var(--text-primary);
+    }
+
+    /* ── 主體 Section ── */
+    section {
+      margin-bottom: 52px;
+      padding: 36px 40px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(to bottom, var(--brand-red), transparent);
+    }
+
+    section h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    section h2 .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px; height: 28px;
+      background: var(--brand-red);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    section p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+      line-height: 1.9;
+    }
+
+    section p:last-child {
+      margin-bottom: 0;
+    }
+
+    section ul {
+      list-style: none;
+      margin: 14px 0;
+    }
+
+    section ul li {
+      font-size: 15px;
+      color: var(--text-secondary);
+      padding: 6px 0 6px 20px;
+      position: relative;
+    }
+
+    section ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--brand-red);
+      font-size: 12px;
+    }
+
+    /* ── 聯絡框 ── */
+    .contact-box {
+      background: var(--bg-card-2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 20px;
+    }
+
+    .contact-box p {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .contact-box a {
+      color: var(--brand-red);
+      text-decoration: none;
+    }
+
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── 最後更新日期 ── */
+    .last-updated {
+      background: var(--bg-card-2);
+      border: 1px solid rgba(184, 35, 44, 0.15);
+      border-radius: 10px;
+      padding: 18px 24px;
+      margin-bottom: 52px;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0 40px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+
+    footer .footer-brand {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      section {
+        padding: 28px 24px;
+      }
+
+      .toc {
+        padding: 22px 24px;
+      }
+
+      header {
+        padding: 40px 0 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <header>
+      <div class="logo-line">
+        <span class="sword">⚔️</span>
+        <span class="brand">MakenShouju · 魔劍少女</span>
+      </div>
+      <h1>隱私權<span>政策</span></h1>
+      <div class="meta-info">
+        <span>📅 最後更新：2026 年 6 月 14 日</span>
+        <span>🌐 適用範圍：社群帳號與自動發文工具</span>
+      </div>
+    </header>
+
+    <div class="last-updated">
+      ℹ️ 本政策適用於「魔劍少女 MakenShouju」Facebook 粉絲專頁、Threads 帳號，以及用於管理這些帳號的社群自動發文工具。
+    </div>
+
+    <nav class="toc" aria-label="目錄">
+      <h2>目錄</h2>
+      <ol>
+        <li><a href="#section-1">資料蒐集範圍</a></li>
+        <li><a href="#section-2">資料使用方式</a></li>
+        <li><a href="#section-3">第三方服務</a></li>
+        <li><a href="#section-4">資料儲存與安全</a></li>
+        <li><a href="#section-5">您的權利</a></li>
+        <li><a href="#section-6">Cookie 使用</a></li>
+        <li><a href="#section-7">政策變更</a></li>
+        <li><a href="#section-8">聯絡方式</a></li>
+      </ol>
+    </nav>
+
+    <main>
+
+      <section id="section-1">
+        <h2><span class="num">1</span>資料蒐集範圍</h2>
+        <p>魔劍少女 MakenShouju 本身為一款由獨立開發者製作的遊戲專案。我們的社群帳號（Facebook 粉絲專頁、Threads）主要用於分享開發進度，<strong>並不主動蒐集訪客的個人資料</strong>。</p>
+        <p>透過我們的社群帳號互動時，以下資料可能由 Meta 平台自動蒐集（非本專案直接蒐集）：</p>
+        <ul>
+          <li>您的公開個人資料（姓名、大頭照）——當您對貼文按讚或留言時</li>
+          <li>您的 IP 位址、瀏覽器資訊——由 Meta 平台伺服器紀錄</li>
+          <li>您與貼文的互動行為（按讚、分享、留言）</li>
+        </ul>
+        <p>上述資料的蒐集與使用，均受 Meta 的隱私政策管轄，與本開發者無關。</p>
+      </section>
+
+      <section id="section-2">
+        <h2><span class="num">2</span>資料使用方式</h2>
+        <p>我們僅將您在社群平台上的互動資料用於以下目的：</p>
+        <ul>
+          <li>了解遊戲開發內容對受眾的吸引力，以改善未來的開發日誌內容</li>
+          <li>回覆您在貼文下的留言或私訊</li>
+          <li>分析貼文觸及率以優化內容策略</li>
+        </ul>
+        <p>我們<strong>不會</strong>將您的個人資料出售、租賃或以任何形式提供給第三方廣告商。</p>
+      </section>
+
+      <section id="section-3">
+        <h2><span class="num">3</span>第三方服務</h2>
+        <p>本專案的社群自動發文工具整合了以下 Meta 官方服務，並受其各自的服務條款與隱私政策約束：</p>
+        <ul>
+          <li><strong>Meta Graph API / Facebook</strong> — 用於在粉絲專頁發布貼文</li>
+          <li><strong>Threads API</strong> — 用於在 Threads 帳號發布貼文</li>
+          <li><strong>Discord Webhook</strong> — 用於開發者內部的草稿預覽（不對外公開）</li>
+        </ul>
+        <p>若您對 Meta 平台如何處理您的資料有疑問，請參閱 <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener" style="color: var(--brand-red);">Meta 隱私政策</a>。</p>
+      </section>
+
+      <section id="section-4">
+        <h2><span class="num">4</span>資料儲存與安全</h2>
+        <p>所有用於操作社群帳號的 API 金鑰（Access Token）均儲存在開發者的本地端設備，並透過環境變數管理，<strong>不會上傳至任何公開儲存庫或第三方伺服器</strong>。</p>
+        <p>發布過的貼文紀錄以 JSON 格式儲存在本地端，僅供開發者自行參考，不對外提供存取。</p>
+        <p>我們採取合理的技術措施保護帳號安全，但請理解，任何網際網路傳輸方式都無法保證 100% 的安全性。</p>
+      </section>
+
+      <section id="section-5">
+        <h2><span class="num">5</span>您的權利</h2>
+        <p>在適用法律範圍內，您有權：</p>
+        <ul>
+          <li>要求查閱我們持有的您的個人資料</li>
+          <li>要求更正不正確的個人資料</li>
+          <li>要求刪除您的個人資料</li>
+          <li>撤回您對資料處理的同意</li>
+        </ul>
+        <p>如需行使上述任何權利，請透過下方聯絡方式與我們聯繫。我們將盡力在合理時間內回覆您的請求。</p>
+      </section>
+
+      <section id="section-6">
+        <h2><span class="num">6</span>Cookie 使用</h2>
+        <p>本 GitHub Pages 靜態網站本身<strong>不使用任何 Cookie 或追蹤技術</strong>。</p>
+        <p>若您透過連結前往 Meta 旗下的 Facebook 或 Threads 平台，這些平台可能會使用 Cookie。相關規範請參閱各平台的 Cookie 政策。</p>
+      </section>
+
+      <section id="section-7">
+        <h2><span class="num">7</span>政策變更</h2>
+        <p>我們保留隨時修訂本隱私政策的權利。若政策有重大變更，我們將在本頁面更新「最後更新」日期。</p>
+        <p>建議您定期查閱本頁面以了解最新政策。繼續使用我們的社群帳號，即表示您接受更新後的政策。</p>
+      </section>
+
+      <section id="section-8">
+        <h2><span class="num">8</span>聯絡方式</h2>
+        <p>如您對本隱私政策有任何疑問，歡迎透過以下方式聯絡我們：</p>
+        <div class="contact-box">
+          <p>📘 <strong>Facebook 粉絲專頁私訊</strong><br/>
+            <a href="https://www.facebook.com/makenshouju" target="_blank" rel="noopener">facebook.com/makenshouju</a>
+          </p>
+          <p>🧵 <strong>Threads</strong><br/>
+            <a href="https://www.threads.net/@makenshouju" target="_blank" rel="noopener">@makenshouju</a>
+          </p>
+          <p>📦 <strong>GitHub</strong><br/>
+            <a href="https://github.com/xo62u04" target="_blank" rel="noopener">github.com/xo62u04</a>
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <p class="footer-brand">⚔️ 魔劍少女 · MakenShouju</p>
+      <p>© 2026 MakenShouju 獨立遊戲開發專案。本作品由獨立開發者雷電製作。</p>
+      <p>本網站由 GitHub Pages 提供服務。</p>
+    </footer>
+
+  </div>
+</body>
+</html>
