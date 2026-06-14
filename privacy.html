@@ -1,466 +1,574 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>隱私權政策 — 魔劍少女 MakenShouju</title>
-  <meta name="description" content="魔劍少女 MakenShouju 社群帳號與社群自動發文工具的隱私權政策說明。" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="魔劍少女 MakenShouju 社群帳號與社群自動發文工具的隱私權政策說明。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ── 完全沿用官網色票與設計語言 ── */
+    :root {
+      --bg-main: #08070A;
+      --bg-panel: #111017;
+      --obsidian: #151318;
+      --crimson: #B51F2E;
+      --deep-red: #5A0E17;
+      --purple-corrupt: #6D2A8A;
+      --antique-gold: #B89A5A;
+      --text-main: #E8E1D5;
+      --text-muted: #AFA69D;
+      --font-family: 'Noto Serif TC', 'Georgia', serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     html { scroll-behavior: smooth; }
 
-    /* ── 主色調：白底深字，高對比 ── */
     body {
-      background: #f7f5f2;
-      color: #1a1714;
-      font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
-      font-size: 16px;
-      line-height: 1.85;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      overflow-x: hidden;
+      line-height: 1.9;
     }
 
-    /* ── 頂部英雄區：深色 ── */
-    .hero {
-      background: #111018;
-      background-image:
-        radial-gradient(ellipse 80% 60% at 50% -20%, rgba(184,35,44,0.35) 0%, transparent 65%),
-        radial-gradient(ellipse 40% 40% at 90% 110%, rgba(184,35,44,0.15) 0%, transparent 60%);
-      color: #fff;
-      padding: 56px 24px 52px;
-      text-align: center;
+    /* 滾動條 */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-main); }
+    ::-webkit-scrollbar-thumb { background: var(--deep-red); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--crimson); }
+
+    /* ── 導覽列（與官網完全一致）── */
+    .nav-bar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(17, 16, 23, 0.88);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(184, 154, 90, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
     }
 
-    .hero-badge {
-      display: inline-flex;
+    .nav-back {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 3px;
+      font-weight: 600;
+      transition: color 0.3s, text-shadow 0.3s;
+      display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(184,35,44,0.18);
-      border: 1px solid rgba(184,35,44,0.5);
-      border-radius: 99px;
-      padding: 5px 16px;
-      font-size: 12px;
+    }
+    .nav-back:hover {
+      color: var(--text-main);
+      text-shadow: 0 0 12px var(--crimson);
+    }
+
+    .nav-brand {
+      font-size: 1rem;
+      letter-spacing: 5px;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      color: #ff8a8f;
-      margin-bottom: 24px;
+      color: var(--antique-gold);
+      text-decoration: none;
+    }
+
+    .nav-title {
+      font-size: 0.85rem;
+      letter-spacing: 4px;
+      color: var(--text-muted);
+    }
+
+    /* ── 英雄區 ── */
+    .hero {
+      padding-top: 80px;
+      min-height: 36vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(90,14,23,0.45) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 80% 100%, rgba(109,42,138,0.12) 0%, transparent 60%);
+      border-bottom: 1px solid rgba(184, 154, 90, 0.08);
+      padding: 100px 10% 60px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '⚔';
+      position: absolute;
+      font-size: 260px;
+      color: rgba(181, 31, 46, 0.04);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 6px;
+      color: var(--antique-gold);
+      margin-bottom: 20px;
       text-transform: uppercase;
+      opacity: 0.85;
     }
 
     .hero h1 {
-      font-family: 'Noto Serif TC', serif;
-      font-size: clamp(28px, 5vw, 44px);
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.2;
-      margin-bottom: 16px;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      letter-spacing: 10px;
+      color: var(--text-main);
+      text-shadow: 0 0 20px rgba(181, 31, 46, 0.5);
+      margin-bottom: 18px;
     }
 
-    .hero h1 em {
-      font-style: normal;
-      color: #ff6b6b;
+    .hero h1 span {
+      color: var(--crimson);
     }
 
     .hero-meta {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 16px 32px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.55);
-      margin-top: 20px;
+      gap: 12px 32px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      margin-top: 16px;
     }
 
-    .hero-meta span {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    /* ── 內文容器 ── */
-    .container {
-      max-width: 760px;
+    /* ── 頁面主體容器 ── */
+    .page-body {
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 60px 5% 80px;
     }
 
-    /* ── 摘要欄 ── */
-    .summary-bar {
-      background: #fff;
-      border: 1px solid #e2ddd8;
-      border-radius: 12px;
-      padding: 20px 28px;
-      margin: 36px 0 40px;
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      font-size: 14.5px;
-      color: #3d3830;
-      line-height: 1.7;
+    /* ── 摘要提示欄（沿用 dev-post 風格）── */
+    .summary-notice {
+      background: var(--bg-panel);
+      border-left: 4px solid var(--antique-gold);
+      padding: 24px 30px;
+      margin-bottom: 50px;
+      font-size: 1rem;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      line-height: 1.9;
     }
 
-    .summary-bar .icon {
-      font-size: 20px;
-      flex-shrink: 0;
-      margin-top: 1px;
+    .summary-notice strong {
+      color: var(--text-main);
     }
 
     /* ── 目錄 ── */
     .toc {
-      background: #fff;
-      border: 1px solid #e2ddd8;
-      border-radius: 12px;
-      padding: 24px 28px;
-      margin-bottom: 44px;
+      background: var(--obsidian);
+      border: 1px solid rgba(184, 154, 90, 0.15);
+      padding: 36px 40px;
+      margin-bottom: 50px;
     }
 
-    .toc-title {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
+    .toc-label {
+      font-size: 0.8rem;
+      letter-spacing: 6px;
+      color: var(--antique-gold);
       text-transform: uppercase;
-      color: #b8232c;
-      margin-bottom: 16px;
+      margin-bottom: 22px;
+      font-weight: 700;
     }
 
     .toc ol {
       list-style: none;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4px 16px;
+      gap: 6px 24px;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 560px) {
       .toc ol { grid-template-columns: 1fr; }
     }
 
-    .toc ol li {
-      font-size: 13.5px;
-    }
-
     .toc ol li a {
-      color: #4a4440;
-      text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 4px 0;
-      transition: color 0.15s;
+      gap: 10px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      padding: 5px 0;
+      transition: color 0.25s;
+      position: relative;
+      padding-bottom: 8px;
     }
 
-    .toc ol li a:hover { color: #b8232c; }
+    .toc ol li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--crimson);
+      transition: width 0.3s;
+    }
 
-    .toc ol li a::before {
-      content: attr(data-num);
+    .toc ol li a:hover { color: var(--text-main); }
+    .toc ol li a:hover::after { width: 100%; }
+
+    .toc-num {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 20px; height: 20px;
-      background: #f0ece8;
-      border-radius: 4px;
+      width: 22px; height: 22px;
+      background: var(--crimson);
       font-size: 11px;
       font-weight: 700;
-      color: #b8232c;
+      color: #fff;
       flex-shrink: 0;
     }
 
-    /* ── Section 卡片 ── */
-    section {
-      background: #fff;
-      border: 1px solid #e2ddd8;
-      border-radius: 14px;
-      padding: 32px 36px;
-      margin-bottom: 20px;
+    /* ── 政策卡片（沿用 prologue-box / world-card 風格）── */
+    .policy-block {
+      margin-bottom: 28px;
+      background: var(--bg-panel);
+      border: 1px solid rgba(184, 154, 90, 0.12);
+      padding: 36px 40px;
+      position: relative;
+      transition: border-color 0.3s;
     }
 
-    @media (max-width: 500px) {
-      section { padding: 24px 20px; }
+    .policy-block:hover {
+      border-color: rgba(181, 31, 46, 0.35);
     }
 
-    .section-header {
+    .policy-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(to bottom, var(--crimson), transparent);
+    }
+
+    @media (max-width: 560px) {
+      .policy-block { padding: 28px 24px; }
+    }
+
+    .block-header {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #ede9e4;
+      gap: 14px;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(184, 154, 90, 0.1);
     }
 
-    .section-num {
-      width: 32px; height: 32px;
-      background: #b8232c;
-      border-radius: 8px;
-      display: flex;
+    .block-num {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
+      width: 32px; height: 32px;
+      background: var(--crimson);
       font-size: 13px;
       font-weight: 700;
       color: #fff;
       flex-shrink: 0;
     }
 
-    section h2 {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 18px;
+    .policy-block h2 {
+      font-size: 1.25rem;
+      letter-spacing: 5px;
+      color: var(--text-main);
       font-weight: 700;
-      color: #1a1714;
-      line-height: 1.3;
     }
 
-    section p {
-      font-size: 15px;
-      color: #2e2a26;
+    .policy-block p {
+      font-size: 1rem;
+      color: var(--text-muted);
       margin-bottom: 14px;
-      line-height: 1.85;
+      line-height: 1.9;
+      letter-spacing: 1px;
     }
 
-    section p:last-child { margin-bottom: 0; }
+    .policy-block p:last-child { margin-bottom: 0; }
 
-    section p strong {
-      color: #1a1714;
+    .policy-block strong {
+      color: var(--text-main);
       font-weight: 700;
     }
 
-    section ul {
+    /* ── 列表（沿用 sword-specs 風格）── */
+    .policy-block ul {
       list-style: none;
-      margin: 10px 0 14px;
+      margin: 14px 0;
     }
 
-    section ul li {
-      position: relative;
-      padding: 7px 0 7px 22px;
-      font-size: 15px;
-      color: #2e2a26;
-      border-bottom: 1px solid #f0ece8;
+    .policy-block ul li {
+      font-size: 1rem;
+      color: var(--text-muted);
+      padding: 10px 0 10px 0;
+      border-bottom: 1px solid rgba(232, 225, 213, 0.06);
+      letter-spacing: 1px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
     }
 
-    section ul li:last-child { border-bottom: none; }
+    .policy-block ul li:last-child { border-bottom: none; }
 
-    section ul li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: #b8232c;
+    .policy-block ul li::before {
+      content: '▸';
+      color: var(--crimson);
+      font-size: 12px;
+      margin-top: 4px;
+      flex-shrink: 0;
     }
 
-    /* ── 聯絡卡片 ── */
+    /* ── 外部連結 ── */
+    .policy-block a {
+      color: var(--antique-gold);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .policy-block a:hover {
+      color: var(--text-main);
+      text-shadow: 0 0 8px var(--antique-gold);
+    }
+
+    /* ── 聯絡卡片（沿用 world-card 風格）── */
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 22px;
     }
 
     .contact-card {
-      background: #f7f5f2;
-      border: 1px solid #e2ddd8;
-      border-radius: 10px;
-      padding: 16px 18px;
+      background: var(--obsidian);
+      border: 1px solid rgba(184, 154, 90, 0.15);
+      padding: 22px 24px;
+      transition: all 0.3s;
     }
 
-    .contact-card .label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
+    .contact-card:hover {
+      border-color: var(--crimson);
+      box-shadow: 0 0 20px rgba(90, 14, 23, 0.5);
+    }
+
+    .contact-card .c-label {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      color: var(--antique-gold);
       text-transform: uppercase;
-      color: #8a8078;
-      margin-bottom: 6px;
+      margin-bottom: 10px;
+      font-weight: 700;
     }
 
     .contact-card a {
-      color: #b8232c;
+      color: var(--text-muted);
       text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
       word-break: break-all;
+      transition: color 0.2s;
     }
 
-    .contact-card a:hover { text-decoration: underline; }
-
-    /* ── FB 粉專連結更新 ── */
-    .contact-card a[href*="profile.php"] {
-      word-break: break-all;
+    .contact-card a:hover {
+      color: var(--text-main);
     }
 
-    /* ── Footer ── */
+    /* ── 頁尾（與官網一致）── */
     footer {
-      background: #111018;
-      color: rgba(255,255,255,0.45);
       text-align: center;
-      padding: 36px 24px;
-      margin-top: 56px;
-      font-size: 13px;
-      line-height: 2;
-    }
-
-    footer .footer-brand {
-      color: rgba(255,255,255,0.75);
-      font-family: 'Noto Serif TC', serif;
-      font-size: 14px;
-      margin-bottom: 4px;
+      padding: 50px 5%;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(184, 154, 90, 0.08);
+      letter-spacing: 2px;
     }
 
     footer a {
-      color: rgba(255,120,120,0.8);
+      color: var(--antique-gold);
       text-decoration: none;
     }
+
+    footer a:hover { color: var(--text-main); }
   </style>
 </head>
 <body>
 
+  <!-- 導覽列 -->
+  <nav class="nav-bar">
+    <a href="https://xo62u04.github.io/MakenShoujo_Media/" class="nav-back">← BACK</a>
+    <span class="nav-brand">MakenShouju</span>
+    <span class="nav-title">PRIVACY</span>
+  </nav>
+
+  <!-- Hero -->
   <div class="hero">
-    <div class="hero-badge">⚔️ MakenShouju · 魔劍少女</div>
-    <h1>隱私權<em>政策</em></h1>
+    <p class="hero-eyebrow">MakenShouju · 魔劍少女</p>
+    <h1>隱私權<span>政策</span></h1>
     <div class="hero-meta">
-      <span>📅 最後更新：2026 年 6 月 14 日</span>
-      <span>🌐 適用：Facebook 粉絲專頁 · Threads</span>
+      <span>最後更新：2026 年 6 月 14 日</span>
+      <span>適用：Facebook · Threads</span>
     </div>
   </div>
 
-  <div class="container">
+  <!-- 主體 -->
+  <div class="page-body">
 
-    <div class="summary-bar">
-      <span class="icon">ℹ️</span>
-      <span>本政策適用於「魔劍少女 MakenShouju」Facebook 粉絲專頁、Threads 帳號，以及用於管理這些帳號的社群自動發文工具。我們<strong>不主動蒐集您的個人資料</strong>，亦不販售任何用戶資訊。</span>
+    <div class="summary-notice">
+      本政策適用於「<strong>魔劍少女 MakenShouju</strong>」Facebook 粉絲專頁、Threads 帳號，以及用於管理這些帳號的社群自動發文工具。我們<strong>不主動蒐集您的個人資料</strong>，亦不販售任何用戶資訊。
     </div>
 
+    <!-- 目錄 -->
     <nav class="toc" aria-label="目錄">
-      <div class="toc-title">目錄</div>
+      <div class="toc-label">目錄 · CONTENTS</div>
       <ol>
-        <li><a href="#section-1" data-num="1">資料蒐集範圍</a></li>
-        <li><a href="#section-2" data-num="2">資料使用方式</a></li>
-        <li><a href="#section-3" data-num="3">第三方服務</a></li>
-        <li><a href="#section-4" data-num="4">資料儲存與安全</a></li>
-        <li><a href="#section-5" data-num="5">您的權利</a></li>
-        <li><a href="#section-6" data-num="6">Cookie 使用</a></li>
-        <li><a href="#section-7" data-num="7">政策變更</a></li>
-        <li><a href="#section-8" data-num="8">聯絡方式</a></li>
+        <li><a href="#sec-1"><span class="toc-num">1</span>資料蒐集範圍</a></li>
+        <li><a href="#sec-2"><span class="toc-num">2</span>資料使用方式</a></li>
+        <li><a href="#sec-3"><span class="toc-num">3</span>第三方服務</a></li>
+        <li><a href="#sec-4"><span class="toc-num">4</span>資料儲存與安全</a></li>
+        <li><a href="#sec-5"><span class="toc-num">5</span>您的權利</a></li>
+        <li><a href="#sec-6"><span class="toc-num">6</span>Cookie 使用</a></li>
+        <li><a href="#sec-7"><span class="toc-num">7</span>政策變更</a></li>
+        <li><a href="#sec-8"><span class="toc-num">8</span>聯絡方式</a></li>
       </ol>
     </nav>
 
-    <main>
+    <!-- Section 1 -->
+    <div class="policy-block" id="sec-1">
+      <div class="block-header">
+        <div class="block-num">1</div>
+        <h2>資料蒐集範圍</h2>
+      </div>
+      <p>魔劍少女 MakenShouju 是由獨立開發者製作的遊戲專案。我們的社群帳號主要用於分享開發進度，<strong>本專案不主動蒐集訪客的個人資料</strong>。</p>
+      <p>當您透過社群帳號與我們互動時，以下資料可能由 Meta 平台自動蒐集（並非由本專案直接蒐集）：</p>
+      <ul>
+        <li>您的公開個人資料（姓名、大頭照）——當您按讚或留言時</li>
+        <li>您的 IP 位址及瀏覽器資訊——由 Meta 平台伺服器紀錄</li>
+        <li>您與貼文的互動行為（按讚、分享、留言）</li>
+      </ul>
+      <p>上述資料的蒐集與使用，均受 Meta 隱私政策管轄，與本開發者無關。</p>
+    </div>
 
-      <section id="section-1">
-        <div class="section-header">
-          <div class="section-num">1</div>
-          <h2>資料蒐集範圍</h2>
+    <!-- Section 2 -->
+    <div class="policy-block" id="sec-2">
+      <div class="block-header">
+        <div class="block-num">2</div>
+        <h2>資料使用方式</h2>
+      </div>
+      <p>我們僅將您在社群平台上的互動資料用於以下目的：</p>
+      <ul>
+        <li>了解開發內容對受眾的吸引力，以改善未來的開發日誌</li>
+        <li>回覆您在貼文下的留言或私訊</li>
+        <li>分析貼文觸及率以優化內容策略</li>
+      </ul>
+      <p>我們<strong>不會</strong>將您的個人資料出售、租賃或以任何形式提供給第三方廣告商。</p>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="policy-block" id="sec-3">
+      <div class="block-header">
+        <div class="block-num">3</div>
+        <h2>第三方服務</h2>
+      </div>
+      <p>本專案的社群自動發文工具整合了以下官方服務，並受其各自服務條款與隱私政策約束：</p>
+      <ul>
+        <li><strong>Meta Graph API / Facebook</strong> — 用於在粉絲專頁發布貼文</li>
+        <li><strong>Threads API</strong> — 用於在 Threads 帳號發布貼文</li>
+        <li><strong>Discord Webhook</strong> — 用於開發者內部草稿預覽（不對外公開）</li>
+      </ul>
+      <p>若您對 Meta 平台如何處理您的資料有疑問，請參閱 <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta 隱私政策</a>。</p>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="policy-block" id="sec-4">
+      <div class="block-header">
+        <div class="block-num">4</div>
+        <h2>資料儲存與安全</h2>
+      </div>
+      <p>所有用於操作社群帳號的 API 金鑰（Access Token）均儲存在開發者本地端設備，並透過環境變數管理，<strong>不會上傳至任何公開儲存庫或第三方伺服器</strong>。</p>
+      <p>發布過的貼文記錄以 JSON 格式儲存於本地端，僅供開發者自行參考，不對外提供存取。</p>
+      <p>我們採取合理的技術措施保護帳號安全，但請理解，任何網際網路傳輸方式都無法保證 100% 的安全性。</p>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="policy-block" id="sec-5">
+      <div class="block-header">
+        <div class="block-num">5</div>
+        <h2>您的權利</h2>
+      </div>
+      <p>在適用法律範圍內，您有權：</p>
+      <ul>
+        <li>要求查閱我們持有的您的個人資料</li>
+        <li>要求更正不正確的個人資料</li>
+        <li>要求刪除您的個人資料</li>
+        <li>撤回您對資料處理的同意</li>
+      </ul>
+      <p>如需行使上述任何權利，請透過下方聯絡方式與我們聯繫。我們將盡力在合理時間內回覆您的請求。</p>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="policy-block" id="sec-6">
+      <div class="block-header">
+        <div class="block-num">6</div>
+        <h2>Cookie 使用</h2>
+      </div>
+      <p>本 GitHub Pages 靜態網站本身<strong>不使用任何 Cookie 或追蹤技術</strong>。</p>
+      <p>若您透過連結前往 Meta 旗下的 Facebook 或 Threads 平台，這些平台可能會使用 Cookie。相關規範請參閱各平台的 Cookie 政策。</p>
+    </div>
+
+    <!-- Section 7 -->
+    <div class="policy-block" id="sec-7">
+      <div class="block-header">
+        <div class="block-num">7</div>
+        <h2>政策變更</h2>
+      </div>
+      <p>我們保留隨時修訂本隱私政策的權利。若政策有重大變更，我們將在本頁面更新「最後更新」日期。</p>
+      <p>建議您定期查閱本頁面以了解最新政策。繼續使用我們的社群帳號，即表示您接受更新後的政策。</p>
+    </div>
+
+    <!-- Section 8 -->
+    <div class="policy-block" id="sec-8">
+      <div class="block-header">
+        <div class="block-num">8</div>
+        <h2>聯絡方式</h2>
+      </div>
+      <p>如您對本隱私政策有任何疑問，歡迎透過以下方式聯絡我們：</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="c-label">Facebook</div>
+          <a href="https://www.facebook.com/profile.php?id=61591009790564" target="_blank" rel="noopener">魔劍少女 MakenShouju</a>
         </div>
-        <p>魔劍少女 MakenShouju 是一款由獨立開發者製作的遊戲專案。我們的社群帳號主要用於分享開發進度，<strong>本專案不主動蒐集訪客的個人資料</strong>。</p>
-        <p>當您透過社群帳號與我們互動時，以下資料可能由 Meta 平台自動蒐集（並非由本專案直接蒐集）：</p>
-        <ul>
-          <li>您的公開個人資料（姓名、大頭照）——當您按讚或留言時</li>
-          <li>您的 IP 位址及瀏覽器資訊——由 Meta 平台伺服器記錄</li>
-          <li>您與貼文的互動行為（按讚、分享、留言）</li>
-        </ul>
-        <p>上述資料的蒐集與使用，均受 Meta 隱私政策管轄，與本開發者無關。</p>
-      </section>
-
-      <section id="section-2">
-        <div class="section-header">
-          <div class="section-num">2</div>
-          <h2>資料使用方式</h2>
+        <div class="contact-card">
+          <div class="c-label">Threads</div>
+          <a href="https://www.threads.net/@makenshouju" target="_blank" rel="noopener">@makenshouju</a>
         </div>
-        <p>我們僅將您在社群平台上的互動資料用於以下目的：</p>
-        <ul>
-          <li>了解開發內容對受眾的吸引力，以改善未來的開發日誌</li>
-          <li>回覆您在貼文下的留言或私訊</li>
-          <li>分析貼文觸及率以優化內容策略</li>
-        </ul>
-        <p>我們<strong>不會</strong>將您的個人資料出售、租賃或以任何形式提供給第三方廣告商。</p>
-      </section>
-
-      <section id="section-3">
-        <div class="section-header">
-          <div class="section-num">3</div>
-          <h2>第三方服務</h2>
+        <div class="contact-card">
+          <div class="c-label">GitHub</div>
+          <a href="https://github.com/xo62u04" target="_blank" rel="noopener">github.com/xo62u04</a>
         </div>
-        <p>本專案的社群自動發文工具整合了以下 Meta 官方服務，並受其各自的服務條款與隱私政策約束：</p>
-        <ul>
-          <li><strong>Meta Graph API / Facebook</strong> — 用於在粉絲專頁發布貼文</li>
-          <li><strong>Threads API</strong> — 用於在 Threads 帳號發布貼文</li>
-          <li><strong>Discord Webhook</strong> — 用於開發者內部草稿預覽（不對外公開）</li>
-        </ul>
-        <p>若您對 Meta 平台如何處理您的資料有疑問，請參閱 <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener" style="color:#b8232c;">Meta 隱私政策</a>。</p>
-      </section>
+      </div>
+    </div>
 
-      <section id="section-4">
-        <div class="section-header">
-          <div class="section-num">4</div>
-          <h2>資料儲存與安全</h2>
-        </div>
-        <p>所有用於操作社群帳號的 API 金鑰（Access Token）均儲存在開發者的本地端設備，並透過環境變數管理，<strong>不會上傳至任何公開儲存庫或第三方伺服器</strong>。</p>
-        <p>發布過的貼文記錄以 JSON 格式儲存在本地端，僅供開發者自行參考，不對外提供存取。</p>
-        <p>我們採取合理的技術措施保護帳號安全，但請理解，任何網際網路傳輸方式都無法保證 100% 的安全性。</p>
-      </section>
-
-      <section id="section-5">
-        <div class="section-header">
-          <div class="section-num">5</div>
-          <h2>您的權利</h2>
-        </div>
-        <p>在適用法律範圍內，您有權：</p>
-        <ul>
-          <li>要求查閱我們持有的您的個人資料</li>
-          <li>要求更正不正確的個人資料</li>
-          <li>要求刪除您的個人資料</li>
-          <li>撤回您對資料處理的同意</li>
-        </ul>
-        <p>如需行使上述任何權利，請透過下方聯絡方式與我們聯繫。我們將盡力在合理時間內回覆您的請求。</p>
-      </section>
-
-      <section id="section-6">
-        <div class="section-header">
-          <div class="section-num">6</div>
-          <h2>Cookie 使用</h2>
-        </div>
-        <p>本 GitHub Pages 靜態網站本身<strong>不使用任何 Cookie 或追蹤技術</strong>。</p>
-        <p>若您透過連結前往 Meta 旗下的 Facebook 或 Threads 平台，這些平台可能會使用 Cookie。相關規範請參閱各平台的 Cookie 政策。</p>
-      </section>
-
-      <section id="section-7">
-        <div class="section-header">
-          <div class="section-num">7</div>
-          <h2>政策變更</h2>
-        </div>
-        <p>我們保留隨時修訂本隱私政策的權利。若政策有重大變更，我們將在本頁面更新「最後更新」日期。</p>
-        <p>建議您定期查閱本頁面以了解最新政策。繼續使用我們的社群帳號，即表示您接受更新後的政策。</p>
-      </section>
-
-      <section id="section-8">
-        <div class="section-header">
-          <div class="section-num">8</div>
-          <h2>聯絡方式</h2>
-        </div>
-        <p>如您對本隱私政策有任何疑問，歡迎透過以下方式聯絡我們：</p>
-        <div class="contact-grid">
-          <div class="contact-card">
-            <div class="label">📘 Facebook</div>
-            <a href="https://www.facebook.com/profile.php?id=61591009790564" target="_blank" rel="noopener">魔劍少女-MakenShouju</a>
-          </div>
-          <div class="contact-card">
-            <div class="label">🧵 Threads</div>
-            <a href="https://www.threads.net/@makenshouju" target="_blank" rel="noopener">@makenshouju</a>
-          </div>
-          <div class="contact-card">
-            <div class="label">📦 GitHub</div>
-            <a href="https://github.com/xo62u04" target="_blank" rel="noopener">github.com/xo62u04</a>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-  </div>
+  </div><!-- /page-body -->
 
   <footer>
-    <p class="footer-brand">⚔️ 魔劍少女 · MakenShouju</p>
-    <p>© 2026 MakenShouju 獨立遊戲開發專案。由獨立開發者雷電製作。</p>
-    <p>本網站由 <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a> 提供服務。</p>
+    <p>© 2026 MakenShouju Project. All Rights Reserved. &nbsp;|&nbsp; <a href="https://xo62u04.github.io/MakenShoujo_Media/">回到首頁</a></p>
   </footer>
 
 </body>
